@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>qrcode生成二维码</title>
+	<link type="text/css" rel="stylesheet" href="../bootstrap-3.3.4-dist/css/bootstrap.css">
+	<style>#code2 table {margin:0 auto;}</style>
+</head>
+<body>
+<!---介绍说明-->
+	<section class="container">
+		<h2><span class="pull-right"><a href="../index.html" class="btn btn-info">回到首页</a></span></h2>
+		<h1>qrcode生成二维码</h1>
+		<p>qrcode是一款基于jquery的二维码生成插件，在页面中调用该插件就能生成对应的二维码。</p>
+		<p>关于jquery.qrcode.js的说明：<a href="http://www.helloweba.com/view-blog-226.html" target="_blank">如何使用jquery.qrcode生成二维码</a>、
+		<a href="https://github.com/jeromeetienne/jquery-qrcode" target="_blank">GitHub</a></p>
+		<hr/>
+	</section>
+<!--测试部分-->
+	<script type="text/javascript" charset="utf-8" src="../js/jquery1.11.2.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/jquery.qrcode.min.js"></script>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-4"><strong>默认生成256*256的Canvas型二维码：</strong>
+			<div id="code1" class="mt10 mb10 text-center"></div>
+			</div>
+			<div class="col-sm-4"><strong>生成指定大小的Table型二维码：</strong>
+			<div id="code2" class="mt10 mb10 text-center" ></div>
+			</div>
+			<div class="col-sm-4"><strong>生成中文内容的二维码：</strong>
+			<div id="code3" class="mt10 mb10 text-center" ></div>
+			</div>
+		</div>
+	</div>
+	<script>
+		$('#code1').qrcode('http://www.baidu.com');  //默认生成256*256大小的二维码
+		$('#code2').qrcode({                         //指定大小和类型的二维码
+			render:"table",
+			width:200,
+			height:200,
+			text:"www.baidu.com",
+		});
+		
+function toUtf8(str) {                         //如果有中文内容，在生成二维码前就要把字符串转换成UTF-8，然后再生成二维码，您可以通过此函数来转换中文字符串
+    var out, i, len, c;    
+    out = "";    
+    len = str.length;    
+    for(i = 0; i < len; i++) {    
+        c = str.charCodeAt(i);    
+        if ((c >= 0x0001) && (c <= 0x007F)) {    
+            out += str.charAt(i);    
+        } else if (c > 0x07FF) {    
+            out += String.fromCharCode(0xE0 | ((c >> 12) & 0x0F));    
+            out += String.fromCharCode(0x80 | ((c >>  6) & 0x3F));    
+            out += String.fromCharCode(0x80 | ((c >>  0) & 0x3F));    
+        } else {    
+            out += String.fromCharCode(0xC0 | ((c >>  6) & 0x1F));    
+            out += String.fromCharCode(0x80 | ((c >>  0) & 0x3F));    
+        }    
+    }    
+    return out;    
+} 
+
+		var str = toUtf8("百度是中国的！");   //生成中文内容的二维码
+        $('#code3').qrcode(str);
+	</script>
+</body>
+</html>
+	
