@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html >
+<html>
+  <head>
+    <title>ZeroClipboard复制到剪贴板</title>
+    <meta name="description" content="使用ZeroClipboard解决跨浏览器复制到剪贴板的问题">
+    <link type="text/css" rel="stylesheet" href="../bootstrap-3.3.4-dist/css/bootstrap.css">
+	<style>
+	textarea {vertical-align:middle;}
+	</style>
+  </head>
+  <body>
+    <!---介绍说明-->
+	<section class="container">
+	<h2><span class="pull-right"><a href="../index.html" class="btn btn-info">回到首页</a></span></h2>
+    <h1>ZeroClipboard复制到剪贴板</h1>
+    <p>浏览器之中，除了IE一般不支持对剪贴板操作,要实现复制链接按钮的功能,需要借助flash才可以.ZeroClipboard利用透明的Flash让其漂浮在复制按钮之上，这样其实点击的不是按钮而是Flash，这样将需要的内容传入Flash，再通过Flash的复制功能把传入的内容复制到剪贴板。<b>（此方法需要以服务器方式打开文件，以本地文件打开无效。）</b>
+    </p>
+    <p>
+      <a href="https://github.com/zeroclipboard/zeroclipboard" target="_blank">GitHub</a>
+    </p>
+    <hr/>
+	</section>
+    <!--测试部分-->
+    <script type="text/javascript" charset="utf-8" src="../js/jquery1.11.2.min.js"></script>
+	<script type="text/javascript" src="ZeroClipboard.js"></script>
+	<script type="text/javascript">
+    $(function(){
+        $("#btn_copy").each(function(i){
+                //设置swf路径
+                ZeroClipboard.setMoviePath("ZeroClipboard.swf"); 
+                //创建对象
+                var clip = new ZeroClipboard.Client();
+                //设置手型
+                clip.setHandCursor(true); 
+                //绑定按钮
+                clip.glue('btn_copy');
+                //复制内容
+                clip.addEventListener( "mouseOver", function(client) {
+                        client.setText($('#copy_txt').val());
+                });
+                //复制成功后的提示
+                clip.addEventListener( "complete", function(){    
+                        alert("复制成功");     
+                }); 
+        });
+    });
+    </script>
+    <div class="container">
+	  <p>
+	    <label>请输入需要复制的内容：</label>
+        <textarea rows="2" cols="60" id="copy_txt" >点一下【复制】，我就会被复制到剪贴板中</textarea>
+	    <a class="btn btn-info" id='btn_copy' name="btn_copy">复制</a>
+      </p>
+	  <p>
+	    <label>您可以在此处粘贴一下：</label>
+		<textarea rows="2" cols="60"></textarea>
+	  </p>
+	</div>
+  </body>
+</html>
