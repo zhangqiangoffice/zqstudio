@@ -1,0 +1,20 @@
+
+ul#thumblist{display:block; width:264px; margin-right:-4px;list-style:none;padding-left:0px;}
+ul#thumblist li{float:left;margin-right:4px;list-style:none;}
+ul#thumblist li img{ width:60px; height:60px;}
+ul#thumblist li a{display:block;border:1px solid #CCC;}
+ul#thumblist li a.zoomThumbActive{border:1px solid red;}
+
+.jqzoombox{ width:260px; margin:20px auto;}
+
+.jqzoom{text-decoration:none;float:left; width:258px; padding:8px 9px; border:1px solid #ccc; margin-bottom:12px;}
+.jqzoom .spic{ margin:0 auto; width:220px;}
+
+.zoomPad{position:relative;float:left;z-index:99;cursor:crosshair;width:240px; text-align:center;}
+.zoomPup{overflow:hidden;background-color: #FFF;-moz-opacity:0.6;opacity: 0.6;filter: alpha(opacity = 60);z-index:120;position:absolute;border:1px solid #CCC;cursor:crosshair;}
+.zoomOverlay{position:absolute;left:0px;top:0px;background:#FFF;z-index:5000;width:100%;height:100%;display:none;
+z-index:101;}
+.zoomWrapper{position:relative;border:1px solid #ccc;z-index:110; left:30px; top:-9px;}
+.zoomWrapperImage{display:block;position:relative;overflow:hidden;z-index:110;}
+.zoomWrapperImage img{display:block;position:absolute;z-index:101;}
+.zoomIframe{z-index: -1;filter:alpha(opacity=0); -moz-opacity: 0.80;opacity: 0.80;position:absolute;display:block;}

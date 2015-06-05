@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>jqzoom图片放大镜</title>
+	<meta name="description" content="jqzoom图片放大镜">
+	<link type="text/css" rel="stylesheet" href="../bootstrap-3.3.4-dist/css/bootstrap.css">
+</head>
+<body>
+<!---介绍说明-->
+	<section class="container">
+	    <h2><span class="pull-right"><a href="../index.html" class="btn btn-info">回到首页</a></span></h2>
+		<h1>jqzoom图片放大镜</h1>
+		<p>jqzoom是一款基于jQuery的图片放大镜插件。</p>
+		<p>相关介绍：<a href="http://www.cnblogs.com/kissdodog/archive/2012/12/15/2819887.html" target="_blank">www.cnblogs.com</a></p>
+	    <hr/>
+	</section>
+	
+<!--测试部分-->
+	<script src="../js/jquery-1.7.2.min.js" type="text/javascript"></script>
+	<script src="jquery.jqzoom-core.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="jqzoomcss.css" type="text/css">
+	<script type="text/javascript">
+$(document).ready(function() {
+	$('.jqzoom').jqzoom({
+		zoomType: 'standard',
+		lens:true,
+		preloadImages: false,
+		alwaysOn:false,
+	});	
+});
+   
+</script>
+    <div class="container">
+	    <div class="jqzoombox">
+            <div class="part01-pic">
+                <a href="images/img01.jpg" class="jqzoom" rel='gal1'><img class="spic" src="images/img01s.jpg"></a>
+            </div>
+	        <div class="part02-pic" >
+		        <ul id="thumblist" class="clearfix" >
+		    	<li><a class="zoomThumbActive" href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: 'images/img01s.jpg',largeimage: 'images/img01.jpg'}"><img src='images/img01s.jpg'></a></li>
+		    	<li><a href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: 'images/img02s.jpg',largeimage: 'images/img02.jpg'}"><img src='images/img02s.jpg'></a></li>
+			    <li><a  href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: 'images/img03s.jpg',largeimage: 'images/img03.jpg'}"><img src='images/img03s.jpg'></a></li>
+			    <li><a  href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: 'images/img04s.jpg',largeimage: 'images/img04.jpg'}"><img src='images/img04s.jpg'></a></li>
+		        </ul>
+	        </div>
+        </div>
+	</div>
+</body>
+</html>
