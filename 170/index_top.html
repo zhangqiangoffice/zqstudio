@@ -1,0 +1,465 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<title></title>
+<link media="screen" rel="stylesheet" href="demo.css"/>
+<script src="../js/jquery-1.7.2.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+jQuery(document).ready(function(){
+	var qcloud={};
+	$('[_t_nav]').hover(function(){
+		var _nav = $(this).attr('_t_nav');
+		clearTimeout( qcloud[ _nav + '_timer' ] );
+		qcloud[ _nav + '_timer' ] = setTimeout(function(){
+		$('[_t_nav]').each(function(){
+		$(this)[ _nav == $(this).attr('_t_nav') ? 'addClass':'removeClass' ]('nav-up-selected');
+		});
+		$('#'+_nav).stop(true,true).slideDown(200);
+		}, 150);
+	},function(){
+		var _nav = $(this).attr('_t_nav');
+		clearTimeout( qcloud[ _nav + '_timer' ] );
+		qcloud[ _nav + '_timer' ] = setTimeout(function(){
+		$('[_t_nav]').removeClass('nav-up-selected');
+		$('#'+_nav).stop(true,true).slideUp(200);
+		}, 150);
+	});
+});
+</script>
+
+</head>
+<body>
+<div class="head-v3">
+	<div class="navigation-up">
+		<div class="navigation-inner">
+			<div class="navigation-v3">
+				<ul>
+					<li class="" _t_nav="setting">
+						<h2>
+							<a href="#">系统</a>
+						</h2>
+					</li>
+					<li class="" _t_nav="goods">
+						<h2>
+							<a href="#">商品</a>
+						</h2>
+					</li>
+					<li class="" _t_nav="store">
+						<h2>
+							<a href="#">店铺</a>
+						</h2>
+					</li>
+					<li class="" _t_nav="user">
+						<h2>
+							<a href="#">人员</a>
+						</h2>
+					</li>
+					<li class="" _t_nav="order">
+						<h2>
+							<a href="#">交易</a>
+						</h2>
+					</li>
+					<li _t_nav="acategory">
+						<h2>
+							<a href="#">网站</a>
+						</h2>
+					</li>
+					<li class="" _t_nav="ju">
+						<h2>
+							<a href="#">聚划算</a>
+						</h2>
+					</li>
+					<li class="" _t_nav="order_stats">
+						<h2>
+							<a href="#">统计</a>
+						</h2>
+					</li>
+					<li class="" _t_nav="my_wxconfig">
+						<h2>
+							<a href="#">接口</a>
+						</h2>
+					</li>
+					<li class="" _t_nav="adminlog">
+						<h2>
+							<a href="#">安全</a>
+						</h2>
+					</li>
+					<li class="" _t_nav="plugin">
+						<h2>
+							<a href="#">其他</a>
+						</h2>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="navigation-down">
+		<div id="setting" class="nav-down-menu menu-3 menu-1" style="display: none;" _t_nav="setting">
+			<div class="navigation-down-inner">
+				<dl>
+				    <dt>基础设置</dt>
+					<dd>
+						<a href="#">系统设置</a>
+					</dd>
+					<dd>
+						<a  href="#">超时设置</a>
+					</dd>
+					<dd>
+						<a  href="#">地区设置</a>
+					</dd>
+				</dl>
+				<dl>
+				     <dt>支付</dt>
+					<dd>
+						<a  href="#">支付方式</a>
+					</dd>
+					<dd>
+						<a  href="#">银行设置</a>
+					</dd>
+				</dl>
+                <dl>	
+                     <dt>模板</dt>				
+					<dd>
+						<a  href="#">模板编辑</a>
+					</dd>
+					<dd>
+						<a  href="#">通知模板</a>
+					</dd>
+				</dl>
+				<dl>
+                    <dt>其他</dt> 				
+					<dd>
+						<a  href="#">微信订单提醒</a>
+					</dd>
+					<dd>
+						<a  href="#">自编图标</a>
+					</dd>
+				</dl>
+			</div>
+		</div>
+		<div id="goods" class="nav-down-menu menu-3 menu-1" style="display: none;" _t_nav="goods">
+			<div class="navigation-down-inner">
+				<dl>
+					<dd>
+						<a href="#">商品分类</a>
+					</dd>
+					<dd>
+						<a href="#">商品管理</a>
+					</dd>
+				</dl>
+				<dl>
+					<dd>
+						<a href="#">品牌管理</a>
+					</dd>
+				</dl>
+				<dl>
+					<dd>
+						<a href="#">属性管理</a>
+					</dd>
+				</dl>
+				<dl>
+					<dd>
+						<a href="#">推荐类型</a>
+					</dd>
+				</dl>
+			</div>
+		</div>
+		<div id="store" class="nav-down-menu menu-3 menu-1" style="display: none;" _t_nav="store">
+			<div class="navigation-down-inner">
+				<dl>
+					<dd>
+						<a href="#">所属等级</a>
+					</dd>
+					<dd>
+						<a href="#">所属分类</a>
+					</dd>
+				</dl>
+				<dl>
+					<dd>
+						<a href="#">旗舰店管理</a>
+					</dd>
+					<dd>
+						<a href="#">店铺管理</a>
+					</dd>
+				</dl>
+				<dl>
+					<dd>
+						<a href="#">消保列表</a>
+					</dd>
+					<dd>
+						<a href="#">消保设置</a>
+					</dd>
+				</dl>
+				<dl>
+				    <dd>
+					    <a href="#">店铺认证管理</a>
+					</dd>
+				</dl>
+			</div>
+		</div>
+		<div id="user" class="nav-down-menu menu-3 menu-1" style="display: none;" _t_nav="user">
+			<div class="navigation-down-inner">
+				<dl>
+					<dd>
+						<a href="#">会员管理</a>
+					</dd>
+					<dd>
+						<a href="#">会员等级管理</a>
+					</dd>
+					<dd>
+						<a href="#">会员通知</a>
+					</dd>
+				</dl>
+				<dl>
+					<dd>
+						<a href="#">管理员管理</a>
+					</dd>
+				</dl>
+				<dl>
+					<dd>
+						<a href="#">积分管理</a>
+					</dd>
+				</dl>
+				<dl>
+					<dd>
+						<a href="#">预存款管理</a>
+					</dd>
+				</dl>
+				<dl>
+					<dd>
+						<a href="#">分成查询</a>
+					</dd>
+				</dl>
+				<dl>
+					<dd>
+						<a href="#">推荐查询</a>
+					</dd>
+				</dl>
+				<dl>
+					<dd>
+						<a href="#">生活资费查询</a>
+					</dd>
+				</dl>
+			</div>
+		</div>
+				<div id="order" class="nav-down-menu menu-3 menu-1" style="display: none;" _t_nav="order">
+			<div class="navigation-down-inner">
+				<dl>
+					<dd>
+						<a href="#">订单管理</a>
+					</dd>
+					<dd>
+						<a href="#">处理订单</a>
+					</dd>
+				</dl>
+				<dl>
+					<dd>
+						<a href="#">退款管理</a>
+					</dd>
+				</dl>
+			</div>
+		</div>
+		<div id="acategory" class="nav-down-menu menu-3 menu-1" style="display: none;" _t_nav="acategory">
+			<div class="navigation-down-inner">
+				<dl>
+					<dd>
+						<a href="#">文章分类</a>
+					</dd>
+					<dd>
+						<a href="#">文章管理</a>
+					</dd>
+				</dl>
+				<dl>
+					<dd>
+						<a href="#">合作伙伴</a>
+					</dd>
+					<dd>
+						<a href="#">广告位</a>
+					</dd>
+				</dl>
+				<dl>
+					<dd>
+						<a href="#">页面导航</a>
+					</dd>
+					<dd>
+						<a href="#">用户菜单</a>
+					</dd>
+				</dl>
+				<dl>
+					<dd>
+						<a href="#">数据库</a>
+					</dd>
+				</dl>
+				<dl>
+					<dd>
+						<a href="#">团购管理</a>
+					</dd>
+				</dl>
+				<dl>
+					<dd>
+						<a href="#">咨询管理</a>
+					</dd>
+				</dl>
+				<dl>
+					<dd>
+						<a href="#">举报管理</a>
+					</dd>
+					<dd>
+						<a href="#">投诉管理</a>
+					</dd>
+				</dl>
+			</div>
+		</div>
+		<div id="ju" class="nav-down-menu menu-3 menu-1" style="display: none;" _t_nav="ju">
+			<div class="navigation-down-inner">
+				<dl>
+					<dd>
+						<a href="#">聚活动</a>
+					</dd>
+				</dl>
+				<dl>
+					<dd>
+						<a href="#">聚分类</a>
+					</dd>
+				</dl>
+                <dl>				
+					<dd>
+						<a href="#">品牌团</a>
+					</dd>
+				</dl>
+				<dl>
+					<dd>
+						<a href="#">商品审核</a>
+					</dd>
+				</dl>
+			</div>
+		</div>
+		<div id="order_stats" class="nav-down-menu menu-3 menu-1" style="display: none;" _t_nav="order_stats">
+			<div class="navigation-down-inner">
+				<dl>
+					<dd>
+						<a href="#">订单统计</a>
+					</dd>
+				</dl>
+				<dl>
+					<dd>
+						<a href="#">销售概况</a>
+					</dd>
+					<dd>
+						<a href="#">销售明细</a>
+					</dd>
+					<dd>
+						<a href="#">销售排行</a>
+					</dd>
+				</dl>
+                <dl>				
+					<dd>
+						<a href="#">客户统计</a>
+					</dd>
+				</dl>
+				<dl>
+					<dd>
+						<a href="#">会员排行</a>
+					</dd>
+				</dl>
+			</div>
+		</div>
+		<div id="my_wxconfig" class="nav-down-menu menu-3 menu-1" style="display: none;" _t_nav="my_wxconfig">
+			<div class="navigation-down-inner">
+				<dl>
+					<dd>
+						<a href="#">接口配置</a>
+					</dd>
+				</dl>
+				<dl>
+					<dd>
+						<a href="#">关注自动回复</a>
+					</dd>
+				</dl>
+				<dl>
+					<dd>
+						<a href="#">文本回复</a>
+					</dd>
+					<dd>
+						<a href="#">图文回复</a>
+					</dd>
+					<dd>
+						<a href="#">多图文回复</a>
+					</dd>
+					<dd>
+						<a href="#">语音回复</a>
+					</dd>
+				</dl>
+                <dl>				
+					<dd>
+						<a href="#">回答不上来</a>
+					</dd>
+				</dl>
+				<dl>
+					<dd>
+						<a href="#">自定义菜单</a>
+					</dd>
+				</dl>
+			</div>
+		</div>
+		<div id="adminlog" class="nav-down-menu menu-3 menu-1" style="display: none;" _t_nav="adminlog">
+			<div class="navigation-down-inner">
+				<dl>
+					<dd>
+						<a href="#">登陆日志</a>
+					</dd>
+				</dl>
+				<dl>
+					<dd>
+						<a href="#">IP黑名单</a>
+					</dd>
+				</dl>
+				<dl>
+					<dd>
+						<a href="#">来访IP</a>
+					</dd>
+					<dd>
+						<a href="#">已拦截IP</a>
+					</dd>
+				</dl>
+                <dl>				
+					<dd>
+						<a href="#">IP地址查询</a>
+					</dd>
+				</dl>
+			</div>
+		</div>
+		<div id="plugin" class="nav-down-menu menu-3 menu-1" style="display: none;" _t_nav="plugin">
+			<div class="navigation-down-inner">
+				<dl>
+					<dd>
+						<a href="#">插件管理</a>
+					</dd>
+				</dl>
+				<dl>
+					<dd>
+						<a href="#">模块管理</a>
+					</dd>
+				</dl>
+				<dl>
+					<dd>
+						<a href="#">砸蛋设置</a>
+					</dd>
+					<dd>
+						<a href="#">砸蛋礼品管理</a>
+					</dd>
+					<dd>
+						<a href="#">砸蛋礼品兑换记录</a>
+					</dd>
+				</dl>
+			</div>
+		</div>
+	</div>
+</div>
+<p>
+<a href="../index.html">返回首页</a>
+</p>
+</body>
+</html>
